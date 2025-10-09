@@ -1,4 +1,4 @@
-package ArvoresBinarias2025_2.src.app;
+package ArvoresBinarias2025_2.src.lib;
 
 /**
  *
@@ -34,5 +34,8 @@ public class Aluno  {
         this.nome = nome;
     }
 
-
+    @Override
+    public String toString() {
+        return "Matrícula: " + matricula + " | Nome: " + nome;
+    }
 }

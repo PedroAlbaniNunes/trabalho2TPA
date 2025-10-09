@@ -45,7 +45,7 @@ public interface IArvoreBinaria<T> {
      * @return caso tenha sido encontrado um elemento com o valor buscado, o mesmo será retornado. Caso contrário retorna null.
      */
     public T pesquisar(T valor, Comparator comparador);
- 
+
 
     /**
      * Método que busca por um elemento na árvore e, caso encontre, o remove da árvore e o retorna

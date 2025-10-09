@@ -1,5 +1,7 @@
 package ArvoresBinarias2025_2.src.app;
 
+import ArvoresBinarias2025_2.src.lib.Aluno;
+
 import java.util.Comparator;
 
 /**

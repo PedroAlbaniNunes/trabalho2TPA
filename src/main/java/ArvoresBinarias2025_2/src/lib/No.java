@@ -1,4 +1,4 @@
-package implementacao1;
+package ArvoresBinarias2025_2.src.lib;
 
 public class No<T> {
     private T valor;

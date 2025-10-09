@@ -7,9 +7,9 @@ package ArvoresBinarias2025_2.src.app;
 
 import java.util.Random;
 //Ajuste este import para que sua classe de Arvore Binária seja importada
-import lib.ArvoreBinariaExemplo;
+import ArvoresBinarias2025_2.src.lib.Aluno;
+import ArvoresBinarias2025_2.src.lib.IArvoreBinaria;
 //Aqui estou importando a interface IArvoreBinaria, a mesma que sua classe de Árvore Binaria deve implementar
-import lib.IArvoreBinaria;
 
 /**
  *
@@ -103,7 +103,7 @@ public class GeradorDeArvores {
      */
     
 //---Este é o método citado na questão 4 do primeiro relatório
-    public void geraArvoreDegenerada(int n, IArvoreBinaria<Aluno> arv){ 
+    public void geraArvoreDegenerada(int n, IArvoreBinaria<Aluno> arv){
         //inicio matricula com o valor da constante matriculaBase
         int i,matricula= matriculaBase;
         String nome;

@@ -1,9 +1,8 @@
-package implementacao1;
+package ArvoresBinarias2025_2.src.lib;
 
-import ArvoresBinarias2025_2.src.lib.IArvoreBinaria;
 import java.util.Comparator;
 
-public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T>{
+public class ArvoreBinaria<T> implements IArvoreBinaria<T>{
     private No<T> raiz;
     private Comparator<T> comparador;
 
@@ -14,13 +13,13 @@ public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T
 
     @Override
     public void adicionar(T novoValor) {
-                adicionarRecursivo(raiz, novoValor);
+        this.raiz = adicionarRecursivo(raiz, novoValor);
     }
     private No<T> adicionarRecursivo(No<T> atual, T novoValor){
         if (atual == null) {
             return new No<>(novoValor);
         }
-        int comp = comparador.compare(atual.getValor(), novoValor);
+        int comp = comparador.compare(novoValor, atual.getValor());
         if (comp < 0) {
             atual.setFilhoEsquerdo(adicionarRecursivo(atual.getFilhoEsquerdo(), novoValor));
         } else if(comp > 0){
@@ -37,42 +36,43 @@ public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T
     }
 
     private T pesquisarRecursivo(No<T> noAtual, T valorDesejado){
-        if (noAtual == null){
+        if (noAtual == null){ //se o nó atual for nulo, significa que o valor não foi encontrado na árvore
             return null;
         }
 
-        int comp = comparador.compare(noAtual.getValor(), valorDesejado);
+        int comp = comparador.compare(valorDesejado, noAtual.getValor()); //cria o comparador entre o valor do nó atual e o valor desejado
 
-        if (comp == 0){
+        if (comp == 0){ //se for igual, encontrou o valor, então retorna ele
             return noAtual.getValor();
-        } else if (comp < 0){
+        } else if (comp < 0){ //se for menor, vai para a esquerda
             return pesquisarRecursivo(noAtual.getFilhoEsquerdo(), valorDesejado);
-        } else {
+        } else { //se for maior, vai para a direita
             return pesquisarRecursivo(noAtual.getFilhoDireito(), valorDesejado);
         }
     }
 
     @Override
-    public T pesquisar(T valor, Comparator comparador) {
-        return pesquisarRecursivoComparator(this.raiz, valor, comparador);
+    public T pesquisar(T valor, Comparator comp) {
+        if(this.comparador.equals(comp)){ //dá pra usar o método normal de pesquisa se os comparadores forem iguais
+            return pesquisar(valor);
+        }
+
+        return pesquisarRecursivoComparator(this.raiz, valor, comp);
     }
 
-    private T pesquisarRecursivoComparator(No<T> raiz, T valor, Comparator comp){
-        T resEsq, resDir;
-        if (raiz == null){
+    private T pesquisarRecursivoComparator(No<T> noAtual, T valor, Comparator comp) {
+        if (noAtual == null) { //se o nó atual for nulo, significa que o valor não foi encontrado na árvore
             return null;
         }
-        if (comparador.compare(valor, raiz.getValor()) == 0){
-            return raiz.getValor();
-        } else{
-            resEsq = pesquisarRecursivoComparator(raiz.getFilhoEsquerdo(), valor, comp);
-            resDir = pesquisarRecursivoComparator(raiz.getFilhoDireito(), valor, comp);
-            if (resEsq != null){
-                return resEsq;
-            } else {
-                return resDir;
-            }
+
+        if (comp.compare(valor, noAtual.getValor()) == 0) { //se for igual, encontrou o valor, então retorna ele
+            return noAtual.getValor();
         }
+        T valorNaEsquerda = pesquisarRecursivoComparator(noAtual.getFilhoEsquerdo(), valor, comp); //busca na subárvore esquerda
+        if (valorNaEsquerda != null) { //se encontrou o valor na esquerda, retorna ele
+            return valorNaEsquerda;
+        }
+        return pesquisarRecursivoComparator(noAtual.getFilhoDireito(), valor, comp); //se não encontrou na esquerda, busca na direita
     }
 
     @Override
