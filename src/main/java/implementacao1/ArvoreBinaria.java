@@ -189,3 +189,6 @@ public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T
         caminharEmOrdemRecursivo(node.getFilhoDireito(), sb);
     }
 }
+
+
+//testando colaboração git
