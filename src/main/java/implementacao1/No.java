@@ -1,13 +1,37 @@
 package implementacao1;
 
 public class No<T> {
-    T valor;
-    No<T> esquerdo;
-    No<T> direito;
+    private T valor;
+    private No<T> filhoEsquerdo;
+    private No<T> filhoDireito;
 
     public No(T valor){
         this.valor = valor;
-        this.esquerdo = null;
-        this.direito = null;
+        this.filhoEsquerdo = null;
+        this.filhoDireito = null;
+    }
+
+    public T getValor() {
+        return valor;
+    }
+
+    public No<T> getFilhoEsquerdo() {
+        return filhoEsquerdo;
+    }
+
+    public No<T> getFilhoDireito() {
+        return filhoDireito;
+    }
+
+    public void setValor(T valor) {
+        this.valor = valor;
+    }
+
+    public void setEsquerdo(No<T> esquerdo) {
+        this.filhoEsquerdo = esquerdo;
+    }
+
+    public void setFilhoDireito(No<T> filhoDireito) {
+        this.filhoDireito = filhoDireito;
     }
 }
