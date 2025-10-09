@@ -27,7 +27,7 @@ public class No<T> {
         this.valor = valor;
     }
 
-    public void setEsquerdo(No<T> esquerdo) {
+    public void setFilhoEsquerdo(No<T> esquerdo) {
         this.filhoEsquerdo = esquerdo;
     }
 
