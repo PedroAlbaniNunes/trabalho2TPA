@@ -22,7 +22,7 @@ public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T
         }
         int comp = comparador.compare(atual.getValor(), novoValor);
         if (comp < 0) {
-            atual.setEsquerdo(adicionarRecursivo(atual.getFilhoEsquerdo(), novoValor));
+            atual.setFilhoEsquerdo(adicionarRecursivo(atual.getFilhoEsquerdo(), novoValor));
         } else if(comp > 0){
             atual.setFilhoDireito(adicionarRecursivo(atual.getFilhoDireito(), novoValor));
         } else{
