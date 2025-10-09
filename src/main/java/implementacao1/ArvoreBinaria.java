@@ -167,7 +167,31 @@ public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T
 
     @Override
     public String caminharEmNivel() {
-        return "";
+        if (raiz == null){ //se a raiz for nula, a árvore está vazia
+            return "[]";
+        }
+
+        StringBuilder sb = new StringBuilder(); // stringbuilder pra concatenar a string com os valores dos nós
+        java.util.Queue<No<T>> fila = new java.util.LinkedList<>(); // fila pra armazenar os nós a serem visitados
+        fila.add(raiz); //adiciona a raiz na fila
+
+        sb.append("[\n");
+        
+        while (!fila.isEmpty()){ //enquanto a fila não estiver vazia
+            No<T> noAtual = fila.poll(); //remove o primeiro nó da fila e armazena na variável noAtual
+            sb.append(noAtual.getValor()).append(" "); //adiciona o valor do nó atual na string
+
+            //adiciona os filhos do nó atual na fila, se existirem
+            if (noAtual.getFilhoEsquerdo() != null){
+                fila.add(noAtual.getFilhoEsquerdo());
+            }
+            if (noAtual.getFilhoDireito() != null){
+                fila.add(noAtual.getFilhoDireito());
+            }
+
+        }
+        sb.append("]"); // fecha o formato
+        return sb.toString();//garante retorno
     }
 
     @Override
@@ -189,6 +213,3 @@ public class ArvoreBinaria <T extends Comparator<T>> implements IArvoreBinaria<T
         caminharEmOrdemRecursivo(node.getFilhoDireito(), sb);
     }
 }
-
-
-//testando colaboração git
