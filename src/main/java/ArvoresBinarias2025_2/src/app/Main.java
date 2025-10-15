@@ -32,9 +32,11 @@ public class Main {
             arv = new ArvoreBinaria<>(new ComparadorAlunoPorNome()); // Balancear por nome
         }
 
-        System.out.println(menu);
-        escolha = s.nextInt();
-        while(escolha != 0){
+
+        do{
+            System.out.println(menu);
+            escolha = s.nextInt();
+            
             switch (escolha){
                 case 1 ->{
                     System.out.println("Digite a matrícula do Aluno: ");
@@ -55,13 +57,32 @@ public class Main {
                     System.out.println("2) Nome");
                     int comparatorPesquisa = s.nextInt();
                     if (comparatorPesquisa == 1){
-                        System.out.println("Escreva o valor da matrícula");
+                        System.out.println("Escreva o valor da matrícula: ");
                         int matricula = s.nextInt();
                         System.out.println(arv.pesquisar(, new ComparadorAlunoPorMatricula()));
                     }
                 }
+                case 4-> {
+                    System.out.println("Qual valor deseja usar pra remover o aluno");
+                    System.out.println("1) Matricula");
+                    System.out.println("2) Nome");
+                    int comparatorRemocao = s.nextInt();
+                    if (comparatorRemocao == 1){
+                        System.out.println("Escreva o valor da matrícula: ");
+                        int matricula = s.nextInt();
+                        arv.remover();
+                    }
+                    else{
+                        System.out.println("Escreva o nome do aluno: ");
+                        String nome = s.nextLine();
+                        arv.remover();
+                    }
+                }
+                case 5-> {
+                    // Nao entendi esse aqui nao
+                }
             }
-        }
+        } while (escolha != 0);
     }
 
 
