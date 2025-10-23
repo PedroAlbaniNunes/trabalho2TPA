@@ -179,7 +179,7 @@ public class ArvoreBinaria<T> implements IArvoreBinaria<T>{
         
         while (!fila.isEmpty()){ //enquanto a fila não estiver vazia
             No<T> noAtual = fila.poll(); //remove o primeiro nó da fila e armazena na variável noAtual
-            sb.append(noAtual.getValor()).append(" "); //adiciona o valor do nó atual na string
+            sb.append(noAtual.getValor()).append("\n"); //adiciona o valor do nó atual na string
 
             //adiciona os filhos do nó atual na fila, se existirem
             if (noAtual.getFilhoEsquerdo() != null){
