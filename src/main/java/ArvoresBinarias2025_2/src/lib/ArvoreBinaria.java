@@ -197,7 +197,9 @@ public class ArvoreBinaria<T> implements IArvoreBinaria<T>{
     @Override
     public String caminharEmOrdem() {
         StringBuilder sb = new StringBuilder(); //usa o StringBuilder pra concatenar a string com os valores dos nós
+        sb.append("[\n");
         caminharEmOrdemRecursivo(raiz, sb);
+        sb.append("]\n");
         return sb.toString().trim(); //trim remove o espaço extra no final
     }
 
@@ -208,8 +210,9 @@ public class ArvoreBinaria<T> implements IArvoreBinaria<T>{
         //primeiro visita o filho esquerdo até o fim pegando todos os valores
         caminharEmOrdemRecursivo(node.getFilhoEsquerdo(), sb);
         //depois visita a raiz (que é o nó atual)
-        sb.append(node.getValor()).append(" ");
+        sb.append(node.getValor()).append("\n");
         //depois visita o filho direito até o fim, pega os valores e adiciona nos valores já coletados da esquerda
+
         caminharEmOrdemRecursivo(node.getFilhoDireito(), sb);
     }
 }
