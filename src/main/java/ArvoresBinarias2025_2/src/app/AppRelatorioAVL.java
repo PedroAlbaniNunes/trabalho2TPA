@@ -29,29 +29,41 @@ public class AppRelatorioAVL {
         arv = new ArvoreAVL(comparador);
         gerador.geraArvoreDegenerada(100, arv);
         System.out.println("Árvore AVL Criada");
-        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ " Altura: " + arv.altura());
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
         arv = new ArvoreBinaria(comparador);
         gerador.geraArvoreDegenerada(100, arv);
         System.out.println("Árvore Degenerada Criada");
-        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ " Altura: " + arv.altura());
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
+        arv = new ArvoreBinaria(comparador);
+        gerador.geraArvorePerfeitamenteBalanceada(1, 100, arv);
+        System.out.println("Árvore Perfeitamente Balanceada gerada");
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
 
         arv = new ArvoreAVL(comparador);
         gerador.geraArvoreDegenerada(1000, arv);
         System.out.println("Árvore AVL Criada");
-        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ " Altura: " + arv.altura());
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
         arv = new ArvoreBinaria(comparador);
         gerador.geraArvoreDegenerada(1000, arv);
         System.out.println("Árvore Degenerada Criada");
-        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ " Altura: " + arv.altura());
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
+        arv = new ArvoreBinaria(comparador);
+        gerador.geraArvorePerfeitamenteBalanceada(1, 1000, arv);
+        System.out.println("Árvore Perfeitamente Balanceada gerada");
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
         
         arv = new ArvoreAVL(comparador);
         gerador.geraArvoreDegenerada(10000, arv);
         System.out.println("Árvore AVL Criada");
-        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ " Altura: " + arv.altura());
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
         arv = new ArvoreBinaria(comparador);
         gerador.geraArvoreDegenerada(10000, arv);
         System.out.println("Árvore Degenerada Criada");
-        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ " Altura: " + arv.altura());
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
+        arv = new ArvoreBinaria(comparador);
+        gerador.geraArvorePerfeitamenteBalanceada(1, 10000, arv);
+        System.out.println("Árvore Perfeitamente Balanceada gerada");
+        System.out.println("Quantidade de Nós: " + arv.quantidadeNos()+ "\n Altura: " + arv.altura());
 
 
     }
