@@ -3,12 +3,20 @@ package ArvoresBinarias2025_2.src.lib;
 import java.util.Comparator;
 
 public class ArvoreBinaria<T> implements IArvoreBinaria<T>{
-    private No<T> raiz;
-    private Comparator<T> comparador;
+    protected No<T> raiz;
+    protected Comparator<T> comparador;
 
     public ArvoreBinaria(Comparator<T> comparador){
         this.comparador = comparador;
         this.raiz = null;
+    }
+
+    public No<T> getRaiz() {
+        return raiz;
+    }
+
+    public Comparator<T> getComparador() {
+        return comparador;
     }
 
     @Override
